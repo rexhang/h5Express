@@ -1,0 +1,158 @@
+<div class="poster">
+    <img ng-src="{{is_data.detail.header_image}}" alt="" width="100%" height="auto">
+    <div class="showNumber">227 人参与</div>
+</div>
+<div class="info">
+    <ul>
+        <li class="rex-cf">
+            <i class="is_icon rex-fl"></i>
+            <span class="keys rex-fl">时间</span>
+            <span class="values rex-fr">{{is_data.detail.start_time}} 至 {{is_data.detail.end_time}}</span>
+        </li>
+        <li class="rex-cf">
+            <i class="is_icon rex-fl"></i>
+            <span class="keys rex-fl">地点</span>
+            <span class="values rex-fr">{{is_data.detail.location_name}}</span>
+        </li>
+        <li class="rex-cf">
+            <i class="is_icon rex-fl"></i>
+            <span class="keys rex-fl">主办方</span>
+            <span class="values rex-fr"><i class="is_didi_icon"></i>{{is_data.detail.organizer}}</span>
+        </li>
+    </ul>
+    <div class="moreInfo" id="moreInfo">
+        <div class="tit">活动简介</div>
+        <div class="docInfo">
+            {{is_data.detail.description}}
+        </div>
+        <div class="actBg">
+            <img ng-src="{{is_data.detail.detail_img?is_data.detail.detail_img:defPoster}}" alt="" width="100%" height="auto">
+        </div>
+    </div>
+    <div class="more" ng-active-class="tapColor" ng-click="showInfoTitles($event)"></div>
+</div>
+<div class="todayTask">
+    <div class="tit">
+        <span>今日任务</span>
+        <font>完成任务赢取奖励</font>
+    </div>
+    <div class="task-warp">
+        <div class="rex-cf">
+            <div class="col-xs-6 item" ui-sref="didiCollect()" ui-sref-opts="{reload: true}">
+                <div class="innerItem" ng-active-class="tapColor">
+                    <img src="./img/didiIndex/shouji@2x.png">
+                    <div class="right-item">
+                        <p>收集 {{is_data.mission[2].done}}/{{is_data.mission[2].total}}</p>
+                        <div class="progress_all">
+                            <div class="progress_now"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 item">
+                <div class="innerItem" ng-active-class="tapColor" ng-click="scan()">
+                    <img src="./img/didiIndex/saomiao@2x.png">
+                    <div class="right-item">
+                        <p>扫描 {{is_data.mission[1].done}}/{{is_data.mission[1].total}}</p>
+                        <div class="progress_all">
+                            <div class="progress_now"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 item">
+                <div class="innerItem" ng-active-class="tapColor" ng-click="punchCard()">
+                    <img src="./img/didiIndex/daka@2x.png">
+                    <div class="right-item">
+                        <p>打卡 {{is_data.mission[0].done}}/{{is_data.mission[0].total}}</p>
+                        <div class="progress_all">
+                            <div class="progress_now"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="prize">
+    <div class="tit">
+        <span>奖品</span>
+        <font>根据排行榜名词线下兑奖</font>
+    </div>
+    <div class="warp">
+        <div class="rex-cf">
+            <div class="col-xs-4 item" ng-repeat="x in is_data.gift">
+                <img ng-src="{{x.goods_image}}">
+                <div class="name">{{x.goods_name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="more" ng-active-class="tapColor" ui-sref="didiGiftList()" ui-sref-opts="{reload: true}">更多奖品</div>
+</div>
+<div class="rank">
+    <div class="tit">
+        <span>排行榜</span>
+        <font>收集齐指定道具并且耗时最少</font>
+    </div>
+    <div class="warp">
+        <div class="rex-cf">
+            <div class="col-xs-4 item">
+                <img src="./img/didiIndex/1ming@2x.png" class="rankImg">
+                <img ng-src="{{is_data.rank.result[0].thumb_photo}}" class="avatar">
+                <div class="name">{{is_data.rank.result[0].nick_name}}</div>
+                <div class="time">{{is_data.rank.result[0].total_time}}</div>
+            </div>
+            <div class="col-xs-4 item">
+                <img src="./img/didiIndex/2ming@2x.png" class="rankImg">
+                <img ng-src="{{is_data.rank.result[1].thumb_photo}}" class="avatar">
+                <div class="name">{{is_data.rank.result[1].nick_name}}</div>
+                <div class="time">{{is_data.rank.result[1].total_time}}</div>
+            </div>
+            <div class="col-xs-4 item">
+                <img src="./img/didiIndex/3ming@2x.png" class="rankImg">
+                <img ng-src="{{is_data.rank.result[2].thumb_photo}}" class="avatar">
+                <div class="name">{{is_data.rank.result[2].nick_name}}</div>
+                <div class="time">{{is_data.rank.result[2].total_time}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="more" ng-active-class="tapColor" ui-sref="didiRanking()" ui-sref-opts="{reload: true}">查看更多</div>
+</div>
+<div class="collect">
+    <div class="tit">
+        <span>优惠券</span>
+    </div>
+    <ul class="yhq_list">
+        <li ng-active-class="tapColor" ng-repeat="x in is_data.my_coupon" ng-class="x.valid_status == 1 ? '' : 'dis'">
+            <a class="llinkTo" ng-href="{{x.coupon_href}}">
+                <img class="is_icon" ng-src="{{x.coupon_image?x.coupon_image:Avatar}}">
+                <div class="details">
+                    <p>{{x.coupon_title}}</p>
+                    <span>有效期至: {{x.valid_time}}</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="chat-box">
+    <div class="input-box rex-cf">
+        <input type="text" maxlength="100" ng-model="sendContent" class="chattingBox rex-fl" placeholder="已有80条评论, 发表你的看法吧!">
+        <div class="sendMsg rex-fl" ng-active-class="tapColor" ng-click="sendMsg()">发表</div>
+    </div>
+    <div class="msgList">
+        <ul>
+            <li class="rex-cf" ng-repeat="x in comments">
+                <div class="msg-tit rex-cf">
+                    <img ng-src="{{x.thumb_image}}" class="rex-fl">
+                    <span class="name rex-fl">{{x.from_nickname}}</span>
+                    <div class="times rex-fr">{{x.create_time * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+                </div>
+                <div class="contents">
+                    {{x.comment_content}}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="moreList" ng-active-class="tapColor" ng-hide="hidemorebtn" ng-click="loadMore()">加载更多</div>
+</div>
+<div style="width: 100%;height: 0.266667rem;"></div>

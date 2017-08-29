@@ -1,0 +1,801 @@
+/* 全局变量 */
+$themeRed: #ED2D2E;
+$themeGray: #252438;
+$themeBlack: #100F25;
+$loginHead: #15132f;
+$loginHeadColor: #ce2728;
+
+/* 字体设置函数 */
+@mixin fonts ($issize, $iscolor) {
+    font-size: $issize;
+    color: $iscolor;
+}
+
+/* 盒子 */
+@mixin boxs () {
+    box-sizing: border-box;
+}
+
+/* 禁止选择文字 */
+@mixin donttouch() {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+/* 过度 */
+@mixin transitions ($time, $type) {
+    will-change: transform;
+    transition: all $time $type;
+}
+
+.didiIndex-html {
+    height: auto;
+}
+
+.didiCollect-html {
+    height: 100%;
+}
+
+/* 滴滴打卡活动 */
+.didiIndex {
+    background-color: #f2f2f2;
+
+    .poster {
+        @include transitions(.3s, ease-in-out);
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            display: block;
+        }
+
+        .showNumber {
+            width: 100%;
+            height: 1.066667rem;
+            line-height: 1.066667rem;
+            text-align: center;
+            @include fonts(0.293333rem, #fff);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: auto;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+    }
+
+    .info {
+        @include transitions(.3s, ease-in-out);
+        width: 100%;
+        background-color: #fff;
+
+        ul {
+            display: block;
+            width: 100%;
+            padding: 0.4rem 0;
+
+            li {
+                width: 100%;
+                padding: 0 0.4rem;
+                margin-bottom: 0.4rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:nth-child(1) .is_icon {
+                    background: url('../img/didiIndex/shijian@2x.png') no-repeat;
+                    background-size: 100% 100%;
+                    background-position: center center;
+                }
+
+                &:nth-child(2) .is_icon {
+                    background: url('../img/didiIndex/didian@2x.png') no-repeat;
+                    background-size: 100% 100%;
+                    background-position: center center;
+                }
+
+                &:nth-child(3) .is_icon {
+                    background: url('../img/didiIndex/zhubanfang@2x.png') no-repeat;
+                    background-size: 100% 100%;
+                    background-position: center center;
+                }
+
+                .is_icon {
+                    width: 0.4rem;
+                    height: 0.48rem;
+                    display: inline-block;
+                    float: left;
+                }
+
+                .keys {
+                    @include fonts(0.346667rem, #999);
+                    margin-left: 0.2rem;
+                }
+
+                .values {
+                    @include fonts(0.346667rem, #333);
+
+                    .is_didi_icon {
+                        width: 0.4rem;
+                        height: 0.346667rem;
+                        display: inline-block;
+                        background: url('../img/didiIndex/logo@2x.png') no-repeat;
+                        background-size: 100% 100%;
+                        background-position: center center;
+                        vertical-align: middle;
+                        margin-right: 0.2rem;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .moreInfo {
+            overflow: hidden;
+            border-top: 0.013333rem solid #f2f2f2;
+            padding: 0 0.4rem;
+            margin-bottom: 0.4rem;
+            height: 0;
+            opacity: 0;
+
+            &.show {
+                @include transitions(.3s, ease-in-out);
+                opacity: 1;
+                height: auto;
+            }
+
+            .tit {
+                @include fonts(0.426667rem, #333);
+                text-align: center;
+                padding: 0.533333rem 0 0.266667rem 0;
+            }
+
+            .docInfo {
+                @include fonts(0.32rem, #666);
+                margin-bottom: 0.32rem;
+                word-break: break-all;
+            }
+
+            .actBg {
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+
+                img {
+                    display: block;
+                }
+
+            }
+
+        }
+
+        .more {
+            width: 100%;
+            height: 1.066667rem;
+            border-top: 0.013333rem solid #f2f2f2;
+            background: url('../img/didiIndex/xiala@2x.png') no-repeat;
+            background-position: center center;
+            background-size: 0.426667rem 0.266667rem;
+            margin-bottom: 0.266667rem;
+            @include donttouch();
+            @include transitions(.2s, ease-in-out);
+
+            &.tapColor {
+                background-color: #d5d5d5 !important;
+            }
+
+            &.typeUp {
+                background: url('../img/didiIndex/shang@2x.png') no-repeat;
+                background-position: center center;
+                background-size: 0.426667rem 0.266667rem;
+            }
+
+        }
+
+    }
+
+    .todayTask {
+        @include transitions(.3s, ease-in-out);
+        width: 100%;
+        background-color: #fff;
+        padding: 0.4rem;
+        margin-bottom: 0.266667rem;
+
+        .tit {
+            margin-bottom: 0.533333rem;
+
+            span {
+                @include fonts(0.48rem, #333);
+            }
+
+            font {
+                @include fonts(0.32rem, #999);
+                margin-left: 0.213333rem;
+            }
+
+        }
+
+        .task-warp {
+            .item {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 0.266667rem;
+
+                &:nth-child(2n) .innerItem {
+                    float: right;
+                }
+
+                .innerItem {
+                    @include donttouch();
+                    @include transitions(.2s, ease-in-out);
+
+                    &.tapColor {
+                        background-color: #d5d5d5 !important;
+                        color: #fff !important;
+                    }
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 2.133333rem;
+                    width: 94%;
+                    float: left;
+                    border-radius: 0.053333rem;
+                    box-shadow: 0 0.026667rem 0.186667rem rgba(102, 102, 102, 0.2);
+
+                    img {
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        border-radius: 50%;
+                        margin-right: 0.426667rem;
+                    }
+
+                    .right-item {
+                        p {
+                            @include fonts(0.373333rem, #666);
+                            padding-bottom: 0.24rem;
+                        }
+
+                        .progress_all {
+                            width: 100%;
+                            height: 0.08rem;
+                            border-radius: 0.04rem;
+                            background-color: #999;
+                            position: relative;
+
+                            .progress_now {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 50%;
+                                height: 0.08rem;
+                                border-radius: 0.04rem;
+                                background-color: #31a5ff;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .prize {
+        @include transitions(.3s, ease-in-out);
+        width: 100%;
+        background-color: #fff;
+        padding: 0.4rem;
+        padding-bottom: 0;
+        margin-bottom: 0.266667rem;
+
+        .tit {
+            margin-bottom: 0.533333rem;
+
+            span {
+                @include fonts(0.48rem, #333);
+            }
+
+            font {
+                @include fonts(0.32rem, #999);
+                margin-left: 0.213333rem;
+            }
+
+        }
+
+        .warp {
+            .item {
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                margin-top: 1rem;
+
+                &:nth-child(1) {
+                    margin-top: 0;
+                }
+
+                &:nth-child(2) {
+                    margin-top: 0;
+                }
+
+                &:nth-child(3) {
+                    margin-top: 0;
+                }
+
+                img {
+                    width: 2.666667rem;
+                    height: 2.666667rem;
+                }
+
+                .name {
+                    @include fonts(0.4rem, #333);
+                    width: 2.666667rem;
+                    margin: 0 auto;
+                    margin-top: 0.306667rem;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    word-break: break-all; /* 规定自动换行的处理方法 允许在单词内换行 */
+                    -webkit-box-orient: vertical; /* 排列内容方向 从上向下垂直排列子元素 */
+                    -webkit-line-clamp: 2; /* 不规范的CSS代码作用 限制在一个块元素显示的文本的行数 */
+                }
+
+            }
+
+        }
+
+        .more {
+            height: 1.066667rem;
+            line-height: 1.066667rem;
+            border-top: 0.013333rem solid #f2f2f2;
+            margin: 0.533333rem -0.4rem 0 -0.4rem;
+            text-align: center;
+            @include fonts(0.4rem, #077cdc);
+            @include donttouch();
+            @include transitions(.2s, ease-in-out);
+
+            &.tapColor {
+                background-color: #d5d5d5 !important;
+                color: #fff !important;
+            }
+
+        }
+
+    }
+
+    .rank {
+        @extend .prize;
+
+        .item {
+            img.rankImg {
+                width: 0.933333rem;
+                height: 0.56rem;
+                display: block;
+                margin: 0 auto;
+                margin-bottom: -0.08rem;
+                position: relative;
+                z-index: auto;
+            }
+
+            img.avatar {
+                width: 1.733333rem;
+                height: 1.733333rem;
+                border-radius: 50%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .time {
+                @include fonts(0.4rem, #666);
+                margin-top: 0.306667rem;
+            }
+
+        }
+
+    }
+
+    .collect {
+        @include transitions(.3s, ease-in-out);
+        width: 100%;
+        background-color: #fff;
+        padding: 0.4rem;
+        margin-bottom: 0.266667rem;
+
+        .tit {
+            margin-bottom: 0.533333rem;
+
+            span {
+                @include fonts(0.48rem, #333);
+            }
+
+            font {
+                @include fonts(0.32rem, #999);
+                margin-left: 0.213333rem;
+            }
+
+        }
+
+        .yhq_list {
+            li {
+                @include transitions(.3s, ease-in-out);
+                width: 100%;
+                height: 3.04rem;
+                background: url('../img/didiIndex/enableyouhuiquan.png') no-repeat;
+                background-size: 100% 100%;
+                background-position: center center;
+                margin-bottom: 0.266667rem;
+
+                &.dis {
+                    background: url('../img/didiIndex/disableyouhuiquan.png') no-repeat;
+                    background-size: 100% 100%;
+                    background-position: center center;
+                }
+
+                &.tapColor {
+                    opacity: .7;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .llinkTo {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+
+                    .is_icon {
+                        width: 1.333333rem;
+                        height: 1.333333rem;
+                        border-radius: 50%;
+                        margin-left: 2.08rem;
+                    }
+
+                    .details {
+                        margin-left: 0.48rem;
+
+                        p {
+                            @include fonts(0.426667rem, #333);
+                            display: -webkit-box;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            word-break: break-all;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 1;
+                        }
+
+                        span {
+                            @include fonts(0.32rem, #666);
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .chat-box {
+        @include transitions(.3s, ease-in-out);
+        width: 100%;
+        background-color: #fff;
+        padding: 0.4rem;
+        padding-bottom: 0;
+        margin-bottom: 0.266667rem;
+
+        .input-box {
+            width: 100%;
+            height: 0.933333rem;
+            line-height: 0.933333rem;
+
+            .chattingBox {
+                width: 7.466667rem;
+                height: 0.933333rem;
+                line-height: 1;
+                border: 0.013333rem solid #ddd;
+                text-indent: 0.40rem;
+                border-radius: 0.053333rem 0 0 0.053333rem;
+                @include boxs();
+            }
+
+            .sendMsg {
+                width: 1.733333rem;
+                height: 0.933333rem;
+                text-align: center;
+                background-color: #077cdc;
+                border-radius: 0 0.053333rem 0.053333rem 0;
+                @include fonts(0.4rem, #fff);
+
+                &.tapColor {
+                    background-color: #0d5692 !important;
+                    color: #fff !important;
+                }
+
+            }
+
+        }
+
+        .msgList {
+            ul {
+                li {
+                    margin-top: 0.586667rem;
+
+                    &:last-child .contents {
+                        border: 0;
+                    }
+
+                    .msg-tit {
+                        height: 0.96rem;
+                        line-height: 0.96rem;
+
+                        img {
+                            width: 0.96rem;
+                            height: 0.96rem;
+                            border-radius: 50%;
+                        }
+
+                        .name {
+                            @include fonts(0.4rem, #999);
+                            margin-left: 0.266667rem;
+                        }
+
+                        .times {
+                            @include fonts(0.32rem, #999);
+                        }
+
+                    }
+
+                    .contents {
+                        @include fonts(0.4rem, #404040);
+                        margin-left: 1.226667rem;
+                        padding-bottom: 0.4rem;
+                        border-bottom: 0.013333rem solid #f2f2f2;
+                        text-align: justify;
+                        text-align-last: left;
+                    }
+
+                }
+
+            }
+
+        }
+
+        .moreList {
+            height: 1.066667rem;
+            line-height: 1.066667rem;
+            text-align: center;
+            border-top: 0.013333rem solid #f2f2f2;
+            margin: 0 -0.4rem;
+            @include fonts(0.4rem, #077cdc);
+            @include donttouch();
+            @include transitions(.2s, ease-in-out);
+
+            &.tapColor {
+                background-color: #d5d5d5 !important;
+                color: #fff !important;
+            }
+
+        }
+
+    }
+
+    .test {
+        @include donttouch();
+        @include transitions(0.1s, ease-in-out);
+        width: 2.666667rem;
+        height: 1.2rem;
+        background-color: #2cbb80;
+        text-align: center;
+        line-height: 1.2rem;
+        color: #fff;
+        @include transitions(.2s, ease-in-out);
+
+        &.tapColor {
+            background-color: #3ba77a;
+            color: #fff;
+        }
+
+    }
+
+}
+
+/* 滴滴礼品列表 */
+.didiGiftList {
+    img {
+        width: 100%;
+        display: block;
+    }
+
+}
+
+/* 滴滴用户排名 */
+.didiRanking {
+    .topBg {
+        width: 100%;
+        height: 4.0rem;
+        @include boxs();
+    }
+
+    .list {
+        li {
+            width: 100%;
+            height: 1.56rem;
+            border-bottom: 0.013333rem solid #f2f2f2;
+            display: flex;
+            align-items: center;
+            position: relative;
+            @include boxs();
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            span {
+                margin-left: 0.4rem;
+                @include fonts(0.4rem, #000);
+            }
+
+            img {
+                width: 0.8rem;
+                height: 0.8rem;
+                border-radius: 50%;
+                margin-left: 0.906667rem;
+            }
+
+            font {
+                margin-left: 0.48rem;
+                @include fonts(0.4rem, #333);
+            }
+
+            div {
+                position: absolute;
+                right: 0.4rem;
+                top: auto;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                z-index: auto;
+                @include fonts(0.4rem, #d7d7d7);
+            }
+
+        }
+
+    }
+
+    .my {
+        width: 100%;
+        height: 2.0rem;
+        background-color: #fff;
+        filter: drop-shadow(0 0.026667rem 0.186667rem rgba(102, 102, 102, 0.2));
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 1.333333rem;
+            height: 1.333333rem;
+            border-radius: 50%;
+            margin-left: 1.16rem;
+        }
+
+        .my-info {
+            margin-left: 0.44rem;
+
+            p {
+                @include fonts(0.48rem, #333);
+            }
+
+            span {
+                @include fonts(0.4rem, #666);
+            }
+
+        }
+
+        .my-time {
+            @include fonts(0.4rem, #d7d7d7);
+            position: absolute;
+            right: 0.4rem;
+            top: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            z-index: auto;
+        }
+
+    }
+
+}
+
+/* 滴滴我的收集 */
+.didiCollect {
+    width: 100%;
+    height: 100%;
+
+    #ui-view {
+        width: 100%;
+        height: 100%;
+    }
+
+    .wrap {
+        width: 100%;
+        height: auto;
+        padding: 15px 0;
+
+        .item {
+            height: auto;
+            padding-bottom: 15px;
+
+            img {
+                border-radius: 0.106667rem;
+                width: 100%;
+                height: auto;
+            }
+
+        }
+
+    }
+
+    .defBg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .centers {
+            text-align: center;
+
+            .def_tips {
+                width: 4.0rem;
+                height: 4.0rem;
+                display: inline-block;
+                border-radius: 50%;
+                margin-bottom: 0.386667rem;
+            }
+
+            .tip {
+                @include fonts(0.4rem, #333);
+            }
+
+            .go {
+                width: 3.866667rem;
+                height: 1.066667rem;
+                background: url('../img/didiIndex/goPunchCard.png') no-repeat;
+                background-size: 100% 100%;
+                background-position: center center;
+                display: inline-block;
+                margin-top: 0.666667rem;
+
+                &.tapColor {
+                    opacity: .7;
+                }
+
+            }
+
+        }
+
+    }
+
+}

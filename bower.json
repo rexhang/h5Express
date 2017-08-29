@@ -1,0 +1,21 @@
+{
+  "name": "h5Express",
+  "description": "",
+  "main": "entry.js",
+  "authors": [
+    "rexhang"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}

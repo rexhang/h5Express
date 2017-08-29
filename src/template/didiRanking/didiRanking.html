@@ -1,0 +1,19 @@
+<div class="topBg">
+	<img src="./img/didiIndex/topBg.png" alt="" width="100%">
+</div>
+<ul class="list">
+	<li ng-repeat="x in data">
+		<span>{{$index+1}}</span>
+		<img ng-src="{{x.thumb_photo}}">
+		<font>{{x.nick_name}}</font>
+		<div>{{x.total_time}}</div>
+	</li>
+</ul>
+<div class="my">
+	<img ng-src="{{my.thumb_photo}}">
+	<div class="my-info">
+		<p>{{my.nick_name}}</p>
+		<span>{{my.rank?'第'+my.rank+'名':'无排名'}}</span>
+ 	</div>
+	<div class="my-time">{{my.total_time}}</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="wrap" ng-hide="defList">
+	<div class="rex-cf">
+		<div class="col-xs-4 item" ng-repeat="x in dataList">
+			<img ng-src="{{x.coupon_image}}">
+		</div>
+	</div>
+</div>
+
+<div class="defBg" ng-show="defTips">
+	<div class="centers">
+		<img class="def_tips" src="./img/didiIndex/def_tips.png">
+		<div class="tip">你还没有收集到任务道具</div>
+		<div class="tip">参与打卡任务可获得道具</div>
+		<div class="go" ng-active-class="tapColor" ng-click="punchCard()"></div>
+	</div>
+</div>
