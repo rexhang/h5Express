@@ -172,17 +172,17 @@ services
         },
         apiUrl: function(){
             var urlConfig = {
-                'm.arseeds.com': {
-                    'online': 'https://interface.arseeds.com',
-                    'online_exchange': 'https://api.arseeds.com'
+                'm.api.com': {
+                    'online': 'https://interface.api.com',
+                    'online_exchange': 'https://api.api.com'
                 },
-                'interface.arseeds.com': {
-                    'online': 'https://interface.arseeds.com',
-                    'online_exchange': 'https://api.arseeds.com'
+                'interface.api.com': {
+                    'online': 'https://interface.api.com',
+                    'online_exchange': 'https://api.api.com'
                 },
-                'www.arseeds.com': {
-                    'online': 'https://interface.arseeds.com',
-                    'online_exchange': 'https://api.arseeds.com'
+                'www.api.com': {
+                    'online': 'https://interface.api.com',
+                    'online_exchange': 'https://api.api.com'
                 },
                 '60.205.148.16:8080': {
                     'online': 'http://60.205.148.16:8080',
